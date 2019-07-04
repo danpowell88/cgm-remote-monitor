@@ -31,7 +31,9 @@
     "bundle": "webpack --mode production --config webpack.config.js && npm run-script update-buster",
     "bundle-dev": "webpack --mode development --config webpack.config.js && npm run-script update-buster",
     "bundle-analyzer": "webpack --mode development --config webpack.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
-    "update-buster": "node bin/generateCacheBuster.js >tmp/cacheBusterToken"
+    "update-buster": "node bin/generateCacheBuster.js >tmp/cacheBusterToken",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "config": {
     "blanket": {
@@ -93,7 +95,8 @@
     "socket.io": "~2.1.1",
     "swagger-ui-dist": "^3.20.6",
     "terser": "^3.16.1",
-    "traverse": "^0.6.6"
+    "traverse": "^0.6.6",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "benv": "^3.3.0",
@@ -109,5 +112,6 @@
     "webpack": "^4.29.3",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.3"
-  }
+  },
+  "snyk": true
 }
